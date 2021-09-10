@@ -1,0 +1,79 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Cambria;
+    background-image: url(images/Login/bgu.jpg);
+    color: white;
+  
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  } 
+  .login-form {
+    width: 450px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    border-radius: 30px;
+  }
+  .input {
+    width: 70%;
+    outline: none;
+    padding: 10px;
+    border-radius: 16px;
+    font-size: 16px;
+    color: white;
+    margin: 10px;
+    text-align: center;
+    background: transparent;
+    border-color: #3498db;
+    transition: 0.4s;
+    background-clip: padding-box;
+  }
+
+  .login-btn-u {
+    padding: 10px;
+    width: 50%;
+    background-color: transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.4s;
+    outline: none;
+  }
+  
+  .login-btn-u:hover {
+    width: 60%;
+    border-color: cornflowerblue;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .login-btn-s {
+    padding: 10px;
+    width: 40%;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-right: 5px;
+    transition: 0.4s;
+  }
+  
+  .login-btn-s:hover {
+    width: 50%;
+    border-color: rgba(207, 6, 207, 0.692);
+  }
+
+  #sgn{
+      color:black;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}

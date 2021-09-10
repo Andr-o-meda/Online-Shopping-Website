@@ -1,0 +1,187 @@
+{% extends 'base.html' %} {% load static %}
+
+<!-- This is the discount carousel section -->
+{% block discarousel %}
+
+<div class="container my-4">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="6000">
+        <img src="/static/images/disc1.jpg" height="200px" class="d-block w-10" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>GRAB THIS AMAZING DISCOUNT</h5>
+          <p class="caro">AVAILABLE IN SELECTED STORES!</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="6000">
+        <img src="/static/images/disc3.jpg" height="200px" class="d-block w-10" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>USE CODE FIRST2021</h5>
+          <p class="caro">AVAILABLE IN SELECTED STORES! HURRY UP</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="6000">
+        <img src="/static/images/disc2.png" height="200px" class="d-block w-10" alt="..." />
+        <div class="carousel-caption d-none d-md-block">
+          <h5>GRAB THIS AMAZING DISCOUNT</h5>
+          <p class="caro">AVAILABLE IN SELECTED STORES</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+{% endblock discarousel %}
+
+<!--shop by category section start here-->
+{% block catshop %}
+<section class="shop_by_category py-5 my-5" id="shop_by_category">
+  <div class="container-fluid">
+    <div class="section_title text-center mb-5">
+      <h1 class="text-capitalize">OUR SERVICES</h1>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 col-12">
+        <div class="card bg-dark text-white">
+          <a href="/prod">
+            <img class="card-img img img-fluid" src="{% static 'images/shop2.jpeg' %}" alt="Card image" width="200px"
+              height="200px" />
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12 mt-small-5 mb-small-5">
+        <div class="card bg-dark text-white">
+          <a href="/prod">
+            <img class="card-img img img-fluid" src="{% static 'images/shop1.jpeg' %}" alt="Card image" width="200px"
+              height="200px" />
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12">
+        <div class="card bg-dark text-white">
+          <a href="/prod">
+            <img class="card-img img img-fluid" src="{% static 'images/shop3.jpg' %}" alt="Card image" width="200px"
+              height="200px" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock catshop %}
+<!--shop by category  section ends here-->
+
+<!--latest prodect section start here-->
+{% block latpro %}
+<section class="py-5 bg-light">
+  <div class="container px-4 px-lg-5 mt-5">
+    <h2 class="fw-bolder mb-4">NEW LAUNCHES</h2>
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      {%for product in Products%}
+      <div class="col mb-5">
+        <div class="card h-100">
+          <!-- Sale badge-->
+          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">NEW</div>
+          <!-- Product image-->
+          <img class="card-img-top" src="/media/{{product.image}}" alt="..." />
+          <!-- Product details-->
+          <div class="card-body p-4">
+            <div class="text-center">
+              <!-- Product name-->
+              <h5 class="fw-bolder">Special Item</h5>
+              <!-- Product reviews-->
+              <!-- Product price-->
+              {{product.product_name}}
+              
+            </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/prod/{{product.product_id}}">Product Details</a></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</section>
+{% endblock latpro %}
+<!-- products section ends here-->
+
+<!--features section start here-->
+{% block feat %}
+<section class="feature py-5 mt-5" id="feature">
+  <div class="container">
+    <div class="section_title text-center mb-5">
+      <h1 class="text-capitalize">Our Features</h1>
+    </div>
+
+    <div class="row text-white">
+      <div class="col-md-4 col-12 shadow p-3">
+        <div class="text-center">
+          <div class="mb-4">
+            <i class="fas fa-shipping-fast fa-3x mb-3 pt-2"></i>
+
+            <div>
+              <h3>Low Cost Shipping Method</h3>
+            </div>
+          </div>
+          <div>
+            We are very reliable when it comes to the shipping . Because we have
+            our offices and headquarters in every state of the country , which
+            helps us to provide low cost shipping 24*7.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12 shadow p-3 mt-small-5 mb-small-5">
+        <div class="text-center">
+          <div class="mb-4">
+            <i class="fas fa-lock fa-3x mb-3 pt-2"></i>
+
+            <div>
+              <h3>Secure Payment System</h3>
+            </div>
+          </div>
+
+          <div>
+            We accept all form of the payment that is card or cash on delivery
+            (COD) which is very reliable and to do this we have our own server
+            which provide security and privacy at its best.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12 shadow p-3">
+        <div class="text-center">
+          <div class="mb-4">
+            <i class="fas fa-sync-alt fa-3x mb-3 pt-2"></i>
+
+            <div>
+              <h3>24*7 Support</h3>
+            </div>
+          </div>
+
+          <div>
+            We are available at your service at any time 24*7 via phone , chat
+            or email.You can share any time of question or complaints vai those
+            methods and we will ensure that you are satisfied at your best.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock feat %}
+<!-- features section ends here-->

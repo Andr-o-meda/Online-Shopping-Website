@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+
+    <style>
+        body {
+            background: linear-gradient(to right, #c04848, #480048);
+            min-height: 100vh;
+        }
+
+        .text-gray {
+            color: #aaa;
+        }
+
+        img {
+            height: 170px;
+            width: 140px;
+        }
+        button{
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row text-center text-white mb-5">
+            <div class="col-lg-7 mx-auto">
+                <h1 class="display-4">Product List</h1>
+
+                <button class="glyphicon glyphicon-shopping-cart" style="
+              float: right;
+              border-radius: 20px;
+              height: 30px;
+              background-color: black;
+            "  onclick="window.location.href='/cart';"><span id="cart">0</span></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <!-- List group-->
+                <ul class="list-group shadow">
+                    <!-- list group item-->
+                    {% for items in products %}
+                    <li class="list-group-item mt-3">
+                        <!-- Custom content-->
+                        <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                            <div class="media-body order-2 order-lg-1">
+                                <h3 class="mt-0 font-weight-bold mb-2" id = "pname{{items.product_id}}">
+                                    {{items.product_name}}
+                                </h3>
+                                <p class="font-italic text-muted mb-0 small">
+                                    {{items.desc}}
+                                </p>
+                                <div class="d-flex align-items-centerjustify-content-between mt-1">
+                                    <h6 class="font-weight-bold my-2" style="font-size: 20px" id="pr{{items.product_id}}">
+                                        ₹{{items.product_price}}
+                                    </h6>
+                                </div>
+                            </div>
+                            <div>
+                                <img src="/media/{{items.image}}" alt="No Image for this product"
+                                    class="ml-5 order-1 order-lg-2" style="width:250px; height: 200px; "/>
+                                    <div class="d-grid gap-2 col-4 mx-3 float-end p-2 my-3">
+                                        {% if items.is_avail%}
+                                            <button href="#" style="background-color: chartreuse;color: black;  border-radius: 20px; width:200px; color: white;" class="cart" id="{{items.product_id}}">
+                                            Add to Cart
+                                            </button>
+                                            
+                                            
+                                        {%else%}
+                                        <button href="#" disabled style="background-color: whitesmoke; color: black;float: right; border-radius: 20px; width:200px;">
+                                            Out Of Stock
+                                        </button>
+                                        {%endif%}
+                                        <button class="qv" style="width:200px; background-color: blue; color:white; border-radius: 20px;" onclick="window.location.href='/prod/{{items.product_id}}';" style="text-decoration: none; ">
+                                            Quick View
+                                        </button>
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- End -->
+                    </li>
+                    {%endfor%}
+                    <!-- End -->
+                    <!-- list group item-->
+                </ul>
+                <!-- End -->
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script>
+        if (localStorage.getItem("cart") == null) {
+            var cart = {};
+        } else {
+            cart = JSON.parse(localStorage.getItem("cart"));
+            document.getElementById('cart').innerHTML = Object.keys(cart).length;
+        }
+        console.log("WEll hello there");
+        $(".cart").click(function () {
+            var idstr = this.id.toString();
+            if(cart[idstr]!=undefined){
+                cart[idstr][0]+=1;
+            }
+            else{    
+                var it = document.getElementById('pname'+idstr).innerHTML.toString().trim();
+                var p = parseInt(document.getElementById('pr'+idstr).innerHTML.toString().trim().slice(1,));
+                console.log('pname'+idstr.toString())
+                console.log(p)
+                cart[idstr]=[1,it,p];
+
+            }
+            localStorage.setItem('cart',JSON.stringify(cart));
+            document.getElementById('cart').innerHTML = Object.keys(cart).length;
+        });
+    </script>
+</body>
+
+</html>

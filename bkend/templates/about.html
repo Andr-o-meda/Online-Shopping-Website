@@ -1,0 +1,309 @@
+{%extends 'base.html'%}
+{% load static %}
+
+
+<!-- about_us page starts here -->
+{% block discarousel %}
+<section class="about py-5 my-5" id="about">
+	<div class="container">
+
+		<div class="section_title text-center mb-5">
+
+			<h1 class="text-capitalize">About Us</h1>
+
+		</div>
+
+		<div class="row">
+
+			<div class="col-md-6 p-3">
+
+				<div class="row">
+
+					<div class="col-md-12" style="text-align: center;">
+
+						<img src="/static/images/about.jpg" class="img img-fluid rounded shadow-lg"
+							alt="about us image"><br><br>
+							<p>
+								When it comes to personalizing your online store, nothing is more effective than an
+								About Us page. This is a quick summary of your company's history and purpose, and should
+								provide a clear overview of the company's brand story.
+							</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="col-md-6">
+
+				<div class="row">
+
+					<div class="col-md-12">
+
+						<div class="title">
+
+							<h3>Our Mission</h3>
+
+						</div>
+
+						<div class="about_text mt-sm-5">
+							
+
+							<p>
+								A great About Us page can help tell your brand story, establish customer loyalty, and
+								turn your bland ecommerce store into an well-loved brand icon. Most importantly, it will
+								give your customers a reason to shop from your brand. </p><br><br>
+
+							<p>
+
+								Our main mission is to provide you the best suited clothes and aslo they are reliable to
+								you in every ways. To acheive that we have partner with many trusted brands , so that
+								you trust us in every ways . We are available to you 24*7 for your service .
+
+							</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+				  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner" >
+				  <div class="carousel-item active" style="background-image:url(https://source.unsplash.com/1400x400/?nature,mountains) ; padding: 100px; background-repeat: no-repeat;">
+					
+					<div class="carousel-caption d-none d-md-block p-4 m-2" >
+					  <h5 >KIM WALSH</h5>
+					  <p style="background: black; border-radius: 20px;">“The modern marketer is an experimenter, a lover of data, a content creator, a justifier of ROI.”</p>
+					</div>
+				  </div>
+				  <div class="carousel-item" style="background-image:url(https://source.unsplash.com/1400x400/?nature,forst) ; padding: 100px; background-repeat: no-repeat;">
+					
+					<div class="carousel-caption d-none d-md-block p-4 m-2">
+					  <h5 >JEFF BEZOS</h5>
+					  <p style="background: black; border-radius: 20px;">
+						“If you're competitor-focused, you have to wait until there is a competitor doing something. Being customer-focused allows you to be more pioneering.”
+						</p>
+					</div>
+				  </div>
+				  <div class="carousel-item" style="background-image:url(https://source.unsplash.com/1400x400/?nature,snow) ; padding: 100px; background-repeat: no-repeat;" >
+					
+					<div class="carousel-caption d-none d-md-block p-4 m-2" >
+					  <h5 >SIMON SINEK</h5>
+					  <p style="background: black; border-radius: 20px;">“People don’t buy what you do, they buy why you do it.”</p>
+					</div>
+				  </div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+				  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				  <span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+				  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				  <span class="visually-hidden">Next</span>
+				</button>
+			  </div>
+			
+			<!-- testimonial ends here -->
+		</div>
+		
+		<div class="row mt-5">
+
+			<div class="col-md-3 col-6">
+				<div class="border border-dark rounded shadow text-center p-3">
+					<div class="mb-4">
+						<i class="far fa-credit-card fa-3x"></i>
+					</div>
+					<div>
+						<h5>Credit Card Support</h5>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="col-md-3 col-6 mt-small-2 mb-small-2">
+				<div class="border border-primary rounded shadow text-center p-3">
+					<div class="mb-4">
+						<i class="fas fa-laptop fa-3x"></i>
+					</div>
+					<div>
+						<h5>Online Order</h5>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="col-md-3 col-6">
+
+				<div class="border border-success rounded shadow text-center p-3">
+					<div class="mb-4">
+						<i class="fas fa-shipping-fast fa-3x"></i>
+					</div>
+					<div>
+						<h5>Fast Delivery</h5>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-6">
+				<div class="border border-danger rounded shadow text-center p-3">
+					<div class="mb-4">
+						<i class="fas fa-gifts fa-3x"></i>
+					</div>
+					<div>
+						<h5>Product with Gift</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock discarousel %}
+
+<!--about_us page ends here -->
+
+
+<!--footer section start here-->
+
+<section class="footer_section pt-5 pb-2" id="footer_section">
+
+	<footer>
+
+		<div class="container-fluid">
+
+			<div class="row">
+
+				<div class="col-md-3 col-6 pl-5 pl-small-15">
+
+					<div class="footer_title">
+
+						<a href="index.html"><img src="assets/images/logo.png" width="150px" class="img img-fluid"
+								alt="logo"></a>
+
+					</div>
+
+					<div>
+
+						One of the largest sellers of the branded clothes and wears in the world .let's shop online.
+
+
+					</div>
+
+				</div>
+
+				<div class="col-md-3 col-6">
+
+					<div class="footer_title pt-3 mb-3">
+
+						<h3>Quick Links</h3>
+					</div>
+
+					<div class="footer_links">
+
+						<ul>
+
+							<li><a href="#">About</a></li>
+
+							<li><a href="javascript:;">Offers & Discounts</a></li>
+							<li><a href="javascript:;">Get Coupon</a></li>
+
+							<li><a href="contact.html">Contact Us</a></li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-3 col-6">
+
+					<div class="footer_title pt-3 mb-3">
+
+						<h3>New Products</h3>
+
+					</div>
+					<div class="footer_links">
+						<ul>
+							<li><a href="javascript:;">Computers</a></li>
+
+							<li><a href="javascript:;">Laptops</a></li>
+
+							<li><a href="javascript:;">Mobiles</a></li>
+
+							<li><a href="javascript:;">Electronic Accessories</a></li>
+
+						</ul>
+					</div>
+
+				</div>
+
+				<div class="col-md-3 col-6">
+
+					<div class="footer_title pt-3 mb-3">
+
+						<h3>Support</h3>
+
+					</div>
+
+					<div class="footer_links">
+						<ul>
+							<li><a href="javascript:;">Frequently Asked Questions</a></li>
+
+							<li><a href="javascript:;">Terms & Conditions</a></li>
+
+							<li><a href="javascript:;">Privacy Policy</a></li>
+
+							<li><a href="javascript:;">Report a Payment Issue</a></li>
+
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="border-top">
+
+			<h6 class="text-center mt-3">Copyright ©2020 All rights reserved
+
+			</h6>
+		</div>
+	</footer>
+
+</section>
+<div class="backtop">
+
+	<a id="button" href="#top" class="btn btn-lg btn-outline-danger" role="button">
+
+		<i class="fas fa-chevron-up text-dark"></i>
+
+	</a>
+
+</div>
+
+<!--   footer ends here -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPHO1s5Ss5nCTpuj/zy4C+0GpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+	integrity="sha384-9/reFTGAW83EW2RDu250VKaIzap3H661ZH81PoYlFhbGU+6BZp667niu7355k7IN"
+	crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+	integrity="sha384-84gt1jrGC70h4AgTPSdUtoBvf08shuf57BaghqFfPlYxofvLB/KUEfYiJOMMV+rV"
+	crossorigin=" anonymous"></script>
+
+</body>
+
+</html>

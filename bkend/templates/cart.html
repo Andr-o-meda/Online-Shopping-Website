@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+        <section class="h-100 h-custom" style="background-color: #d2c9ff;">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                  <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                    <div class="card-body p-0">
+                      <div class="row g-0">
+                        <div class="col-lg-8">
+                          <div class="p-5">
+                            <div class="d-flex justify-content-between align-items-center mb-5">
+                              <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+                            </div>
+                            <hr class="my-4">
+                            <ul class="list-group" id="items">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>PRODUCT NAME</span>
+                                    <span style="text-align: center;">PRICE</span>
+                                    <span style="text-align: end;">QUANTITY</span>
+                                </li>
+
+
+                            </ul>
+                                
+          
+                            
+                            <div class="pt-5">
+                              <h6 class="mb-0"><a href="/" class="text-body"><i
+                                    class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 bg-grey">
+                          <div class="p-5">
+                            <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                            <hr class="my-4">
+          
+                            <div class="d-flex justify-content-between mb-4">
+                              <h5 class="text-uppercase" id="count"></h5>
+                              <h5></h5>
+                            </div>
+          
+                            <h5 class="text-uppercase mb-3">Shipping</h5>
+          
+                            <div class="mb-4 pb-2">
+                              <select class="select">
+                                <option value="1">Standard-Delivery- ₹50.00</option>
+                              </select>
+                            </div>
+          
+                            <h5 class="text-uppercase mb-3">Give code</h5>
+          
+                            <div class="mb-5">
+                              <div class="form-outline">
+                                <input type="text" id="code" class="form-control form-control-lg"/>
+                                <label class="form-label" for="form3Examplea2" >Enter your code</label>
+                                <button type="button" class="btn btn-dark btn-block btn-lg mx-3 my-3 "
+                              data-mdb-ripple-color="dark" id="check" >CHECK</button>
+                              </div>
+                            </div>
+          
+                            <hr class="my-4">
+          
+                            <div class="d-flex justify-content-between mb-5">
+                              <h5 class="text-uppercase">Total price</h5>
+                              <h5 id="tot"></h5>
+                            </div>
+          
+                            <button type="button" class="btn btn-dark btn-block btn-lg"
+                              data-mdb-ripple-color="dark" id="confirm" onclick="window.location.href='/';">Confirm Order</button>
+          
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+          </script>
+          <script>
+                if (localStorage.getItem("cart") == null) {
+                    var cart = {};
+                } else {
+                    cart = JSON.parse(localStorage.getItem("cart"));
+                }
+                var c=0,tot=0;
+                for (item in cart){
+                    c+=cart[item][0];
+                    var name=cart[item][1];
+                    var price=cart[item][2];
+                    var qty = cart[item][0];
+                    mystr=`
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        ${name}   
+                                        <span style="text-align:center;">₹${price}  </span>
+                                        <span style="text-align:end;">${qty}</span>
+                                </li>
+                    `
+                    $('#items').append(mystr);
+                    tot+=cart[item][2]*cart[item][0];
+                }
+                document.getElementById('count').innerHTML = "Total Items: "+c;
+                if(tot>0)
+                    document.getElementById('tot').innerHTML = '₹'+(tot+50);
+                else{
+                    $('#items').append('No items');
+                    document.getElementById('tot').innerHTML = '₹0';
+                }
+          </script>
+          <script>
+            var btn = document.getElementById("check");
+            btn.addEventListener("click", tfunction);
+            function tfunction () {
+                var str = document.getElementById("code").value;
+                if(str=="FIRST2021"){
+                    var tot=parseInt(document.getElementById('tot').innerHTML.toString().trim().slice(1,));
+                    tot=(0.7 * tot);
+                    document.getElementById('tot').innerHTML='₹'+tot;
+                }
+            }
+          </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="/static/Signup.css">
+    <title>SIgn Up</title>
+</head>
+<body>
+  {% if messages %}
+    {%for message in messages%}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong> {{message}} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {%endfor%}
+    {%endif%}
+    <form class="login-form" action="/signup" method="POST">
+        {% csrf_token %}
+        <h1>SIGN UP</h1>
+        <input type="text" class="input" placeholder="Enter Your Name" name="name" required/><br>
+        <input type="email" class="input" placeholder="Enter E-mail" name="email" required/><br>
+        <input type="password" class="input" placeholder="Enter Password" name="pword" required/><br>
+        <input type="password" class="input" placeholder="Re-enter Password" name="rpword" required/><br>
+        <label for="dob">DOB</label><br>
+        <input id="dob" style="outline: none;" class="input" type="date" ><br><br>
+        <input type="radio" name="opt" value="Customer" >Customer<br>
+        <input type="radio" name="opt" value="Seller">     Seller  <br>
+        <button class="login-btn-s" type="submit" style="cursor: pointer; color:black">
+          SIGNUP
+        </button>
+        <h3>OR</h3>
+        <button class="login-btn-u">
+          <a class="wbtn disabled" href="/loginc">LOGIN AS CUSTOMER</a>
+        </button>
+        <button class="login-btn-u">
+          <a class="wbtn disabled-btn" href="/logins">LOGIN AS SELLER</a>
+        </button>
+    </form>
+</body>
+</html>

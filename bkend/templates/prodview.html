@@ -1,0 +1,111 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="/">ETech Website</a>
+                
+                        <button class="btn btn-outline-light" type="submit" onclick="window.location.href='/cart';">
+                            <i class="bi-cart-fill me-1"></i>
+                            Cart
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" id="valuecart">0</span>
+                        </button>
+                        <button class="btn btn-outline-light mx-3" type="submit" id="reset">
+                            <i class="bi-cart-fill me-1"></i>
+                            Delete Cart
+                        </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Product section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                    <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="/media/{{products.image}}" alt="No Image Provided" style="height: 275px; width: 300px;"/></div>
+                    <div class="col-md-6">
+                        <div class="small mb-1" id="pid">ITEM{{products.product_id}}</div>
+                        <h1 class="display-5 fw-bolder" id="pname"> {{products.product_name}}</h1>
+                        <div class="fs-5 mb-5">
+                            <span id="pr{{products.product_id}}">₹{{products.product_price}}</span>
+                        </div>
+                        <p class="lead">{{products.desc}}</p>
+                        <div class="d-flex">
+                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                            {% if products.is_avail%}
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" id="addcart">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                            {% else %}
+                            <button class="btn btn-outline-dark flex-shrink-0" disabled type="button">
+                                <i class="bi-cart-fill me-1"></i>
+                                Available Soon
+                            </button>
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class=" text-center text-white">Copyright &copy; Your Website 2021</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        </script>
+        <script>
+            var btn = document.getElementById("reset");
+            btn.addEventListener("click", tfunction);
+            function tfunction () {
+                localStorage.clear();
+                location.reload();
+                
+            }
+        </script>
+        <script>
+            if(localStorage.getItem("cart") != null) {
+                cart = JSON.parse(localStorage.getItem("cart"));
+                document.getElementById('valuecart').innerHTML = Object.keys(cart).length;
+            }
+            else{
+                cart={};
+            }
+            $("#addcart").click(function(){
+                var idstr = parseInt(document.getElementById("inputQuantity").value);
+                if(idstr>=1 && idstr<=10){
+                    var temp = parseInt(document.getElementById('pid').innerHTML.slice(4));
+                    if(cart[temp]!=undefined){
+                        cart[temp][0]+=idstr;
+                    }
+                    else{
+                        var it = document.getElementById('pname').innerHTML.toString();
+                        var price = parseInt(document.getElementById('pr'+temp).innerHTML.trim().slice(1,));
+                        cart[temp]=[idstr,it,price];
+                    }
+                    console.log(cart);
+                    localStorage.setItem('cart',JSON.stringify(cart));
+                }
+                else{
+                    console.log("Can you buy any more?");
+                }
+                location.reload();
+
+            });
+        </script>
+    </body>
+</html>
